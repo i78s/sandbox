@@ -1,14 +1,14 @@
 let Util = {
-    hasClass: (ele,cls) => {
+    hasClass: function(ele,cls) {
         let tmp = ele.className.split(' ');
         return tmp.indexOf(cls) !== -1;
     },
-    addClass: (ele,cls) => {
+    addClass: function(ele,cls) {
         if (!this.hasClass(ele,cls)) {
             ele.className += ` ${cls}`;
         }
     },
-    removeClass: (ele,cls) => {
+    removeClass: function(ele,cls) {
         let tmp = ele.className.split(' ');
         let index = tmp.indexOf(cls);
         if(this.hasClass(ele,cls)){
