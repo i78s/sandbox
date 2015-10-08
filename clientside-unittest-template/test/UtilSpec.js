@@ -3,7 +3,7 @@ import Util from '../lib/Util';
 describe('Util', () => {
 
     let div;
-    beforeEach(function () {
+    beforeEach(() => {
         div = document.createElement('div');
     });
 
