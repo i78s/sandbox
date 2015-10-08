@@ -1,9 +1,7 @@
 let Util = {
     hasClass: function(ele,cls) {
-        if(!ele.className){
-            return null;
-        }
-        return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+        let tmp = ele.className.split(' ');
+        return tmp.indexOf(cls) !== -1;
     },
     addClass: function(ele,cls) {
         if (!this.hasClass(ele,cls)) {
@@ -11,9 +9,11 @@ let Util = {
         }
     },
     removeClass: function(ele,cls) {
-        if (this.hasClass(ele,cls)) {
-            var reg = new RegExp('(\\s|^)'+cls+'(\\s+|$)');
-            ele.className = ele.className.replace(reg,' ');
+        var tmp = ele.className.split(' ');
+        var index = tmp.indexOf(cls);
+        if(this.hasClass(ele,cls)){
+            tmp.splice(index, 1);
+            ele.className = tmp.join(' ');
         }
     }
 };
