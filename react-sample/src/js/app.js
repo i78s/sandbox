@@ -1,7 +1,6 @@
-
-
 import React from 'react';
 import ReactDom from 'react-dom';
+
 import CommentBox from './components/comment-box';
 
 const commentBox = {

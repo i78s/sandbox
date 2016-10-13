@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import CommentList from './comment-list';
+import CommentForm from './comment-form';
+
 export default class CommentBox extends Component {
   constructor() {
     super();
@@ -8,7 +11,9 @@ export default class CommentBox extends Component {
   render() {
     return (
       <div className="commentBox">
-      Hello, world! I am a CommentBox.
+        <h1>Comments</h1>
+        <CommentList />
+        <CommentForm />
       </div>
     );
   }
