@@ -1,0 +1,25 @@
+{
+  "name": "Frontplate",
+  "version": "4.0.1",
+  "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "frp build && frp serve -t",
+    "test": "frp task test",
+    "build": "frp build",
+    "serve": "frp serve",
+    "production": "frp build -p",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frontainer/frontplate.git"
+  },
+  "author": "frontainer",
+  "license": "MIT",
+  "private": true
+}
