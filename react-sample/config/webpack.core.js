@@ -32,7 +32,7 @@ const webpackConfig = {
                     failOnError: true
                 },
                 babel: {
-                    presets: ["es2015"]
+                    presets: ["react", "es2015"]
                 }
             }
         })

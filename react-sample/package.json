@@ -6,7 +6,9 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-preset-react": "^6.16.0"
+  },
   "scripts": {
     "start": "frp build && frp serve -t",
     "test": "frp task test",
