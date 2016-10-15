@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Remarkable from 'remarkable';
 
+const md = new Remarkable();
 
 export default class Comment extends Component {
   constructor() {
@@ -8,7 +9,6 @@ export default class Comment extends Component {
   }
 
   rawMarkup() {
-    const md = new Remarkable();
     const raw = md.render(this.props.children.toString());
     return {
       __html: raw
