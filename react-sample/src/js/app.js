@@ -3,10 +3,15 @@ import ReactDom from 'react-dom';
 
 import CommentBox from './components/comment-box';
 
+const data = [
+  {id: 1, author: "Pete Hunt", text: "This is one comment"},
+  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+];
+
 const commentBox = {
   render:  () => {
     ReactDom.render(
-    <CommentBox />,
+    <CommentBox data={data} />,
       document.getElementById('content')
     );
   }

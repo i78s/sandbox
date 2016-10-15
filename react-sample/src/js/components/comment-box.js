@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import CommentList from './comment-list';
 import CommentForm from './comment-form';
 
+
 export default class CommentBox extends Component {
   constructor() {
     super();
@@ -12,7 +13,7 @@ export default class CommentBox extends Component {
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentList />
+        <CommentList data={this.props.data} />
         <CommentForm />
       </div>
     );
