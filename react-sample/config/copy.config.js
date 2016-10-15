@@ -2,5 +2,6 @@
 const core = require('./core.config');
 module.exports = {
     // 'path/from': '/path/to'
-    'src/lib/**/*': core.basePath + '/assets/lib'
+    'src/lib/**/*': core.basePath + '/assets/lib',
+    'src/api/**/*': core.basePath + '/api'
 };
