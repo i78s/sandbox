@@ -3,6 +3,9 @@
   "version": "4.0.1",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {
+    "humps": "^1.1.0",
+    "lodash": "^4.16.4",
+    "normalizr": "^2.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
