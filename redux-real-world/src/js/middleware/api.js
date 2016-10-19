@@ -3,6 +3,19 @@ import { camelizeKeys } from 'humps';
 
 const API_ROOT = 'https://api.github.com/';
 
+const getNextPageUrl = (res) => {
+  const link = res.headers.get('link');
+
+  if (!link) return null;
+
+  const nextLink = link.split(',').find(s => s.indexOf('rel="next"') > -1);
+  if (!nextLink) {
+    return null;
+  }
+
+  return nextLink.split(';')[0].slice(1, -1);
+};
+
 const callApi = (endpoint, schema) => {
   const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
 
@@ -11,12 +24,15 @@ const callApi = (endpoint, schema) => {
       .then((json) => {
         if (!res.ok) return Promise.reject(json);
 
+        const camelizedJson = camelizeKeys(json);
+        const nextPageUrl = getNextPageUrl(res);
 
-        console.log(json);
-        console.log(res);
+        return Object.assign({},
+          normalize(camelizedJson, schema),
+          {nextPageUrl}
+        );
       })
-    )
-
+    );
 };
 
 const userSchema = new Schema('users', {
@@ -54,8 +70,22 @@ export default store => next => action => {
   let { endpoint } = callAPI;
   const { schema, types } = callAPI;
 
-  console.log(store);
-  console.log(action);
+  if (typeof endpoint === 'function') {
+    endpoint = endpoint(store.getState());
+  }
+
+  if (typeof endpoint !== 'string') {
+    throw new Error('Specify a string endpoint URL.')
+  }
+  if (!schema) {
+    throw new Error('Specify one of the exported Schemas.')
+  }
+  if (!Array.isArray(types) || types.length !== 3) {
+    throw new Error('Expected an array of three action types.')
+  }
+  if (!types.every(type => typeof type === 'string')) {
+    throw new Error('Expected action types to be strings.')
+  }
 
   const actionWith = data => {
     const finalAction = Object.assign({}, action, data);
@@ -64,10 +94,16 @@ export default store => next => action => {
   };
 
   const [ requestType, successType, failureType ] = types;
+  next(actionWith({ type: requestType }));
 
-  return callApi(endpoint, schema)
-    .then(res => next(actionWith({
-      res,
+  return callApi(endpoint, schema).then(
+      response => next(actionWith({
+      response,
       type: successType
-    })))
+    })),
+      error => next(actionWith({
+      type: failureType,
+      error: error.message || 'Something bad happened'
+    }))
+  );
 }

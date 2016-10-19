@@ -32,7 +32,8 @@ const webpackConfig = {
                     failOnError: true
                 },
                 babel: {
-                    presets: ["react", "es2015"]
+                    plugins: ["transform-runtime"],
+                    presets: ['react', 'es2015', 'stage-0']
                 }
             }
         })
