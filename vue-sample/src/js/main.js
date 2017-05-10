@@ -1,0 +1,11 @@
+import Vue from 'vue'
+import App from './app'
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+
+if (process.env.NODE_ENV === 'development') {
+
+}
