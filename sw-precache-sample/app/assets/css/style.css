@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    margin: 2em 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

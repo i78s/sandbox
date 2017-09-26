@@ -1,0 +1,20 @@
+{
+  "name": "sw-precache-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sw": "$(npm bin)/sw-precache --config=sw-precache-config.js",
+    "serve": "$(npm bin)/browser-sync start --config ./bs-config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sw-precache": "^5.2.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13"
+  }
+}
