@@ -1,0 +1,19 @@
+{
+  "name": "web-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/assets/js/index.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.6.0",
+    "babel-core": "^6.26.0",
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0",
+    "webpack": "^3.5.5"
+  }
+}
