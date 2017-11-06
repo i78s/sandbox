@@ -1,0 +1,25 @@
+web:
+  build: $PWD/docker/nginx
+  ports:
+    - 8000:80
+  links:
+    - fpm:php
+  volumes:
+    - $PWD/www:/var/www
+fpm:
+  build: $PWD/docker/phpfpm
+  volumes:
+    - $PWD/www:/var/www
+  links:
+    - mysql:mysql
+  ports:
+    - 9000:9000
+mysql:
+  build: $PWD/docker/mysql
+  ports:
+    - 3306:3306
+  volumes:
+    - $PWD/sql:/docker-entrypoint-initdb.d
+  environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=testdb
