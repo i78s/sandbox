@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run sw && npm run serve",
     "sw": "$(npm bin)/sw-precache --config=sw-precache-config.js",
     "serve": "$(npm bin)/browser-sync start --config ./bs-config.js"
   },

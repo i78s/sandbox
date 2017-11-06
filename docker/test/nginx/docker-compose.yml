@@ -1,0 +1,6 @@
+web:
+  build: $PWD/docker/nginx
+  ports:
+    - 8080:80
+  volumes:
+    - $PWD/public:/var/www/html
