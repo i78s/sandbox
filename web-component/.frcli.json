@@ -1,0 +1,52 @@
+{
+  "app": {
+    "root": "src",
+    "outDir": "dist",
+    "assets": [
+      "assets/lib"
+    ],
+    "vendor": [
+      "assets/js/vendor.js"
+    ],
+    "entry": {
+      "main": "assets/js/main.js",
+      "styles": "assets/css/styles.scss"
+    },
+    "pages": [
+      {
+        "template": "*.+(ejs|html)",
+        "options": {
+          "params": {
+            "title": "index"
+          }
+        }
+      },
+      {
+        "template": "page/**/*.+(ejs|html)",
+        "script": [
+          "vendor",
+          "styles"
+        ],
+        "options": {}
+      }
+    ],
+    "stylePreprocessorOptions": {
+      "includePaths": []
+    },
+    "browsers": [
+      "last 2 versions"
+    ],
+    "environments": {
+      "dev": "environments/dev.json",
+      "prod": "environments/prod.json"
+    },
+    "watchIgnore": [],
+    "scriptType": "js"
+  },
+  "test": {
+    "files": [
+      "assets/js/vendor.js",
+      "assets/js/**/*.spec.js"
+    ]
+  }
+}
